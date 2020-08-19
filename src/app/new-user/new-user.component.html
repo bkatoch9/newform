@@ -1,0 +1,13 @@
+<app-drag-drop style="display: none;"></app-drag-drop>
+<h1 style="margin-left: 48%;margin-top: 1%;margin-bottom: 1%;">File Content</h1>
+<div class="new">
+    <table style="margin-left: 30%;" >
+        <tbody >
+            <tr *ngFor="let row of data">
+                <td *ngFor="let cell of row">
+                    {{cell}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
