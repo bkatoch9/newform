@@ -1,0 +1,31 @@
+<div class="header">
+  <div class="clearfix"> 
+    <div style="margin-left: 50%;" class="float-left pt-2">
+      <h1 >Users</h1>
+    </div>
+    <div class="float-right">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <div class="container mat-elevation-z8">
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      
+      <ng-container *ngFor="let disCol of arr1; let colIndex = index" matColumnDef="{{disCol}}">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{disCol}} </mat-header-cell>
+        <mat-cell *matCellDef="let cell"> {{cell[disCol]}} </mat-cell>
+      </ng-container>
+  
+      
+      
+      <mat-header-row *matHeaderRowDef="arr1"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: arr1;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator #MatPaginator [pageSizeOptions]="[5, 10,20]"></mat-paginator>
+  </div>
