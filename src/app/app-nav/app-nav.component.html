@@ -1,0 +1,75 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    
+    <mat-toolbar style="padding-left: 0px; height: 8%;" >
+      <img style="margin-left: 0px;" width="200" alt="Angular Logo" src="assets/767623.png"/>
+      <!-- <span style="color:white;font-weight: 100;margin-left:8px; font-size:small;">BNYM PROJECT</span> -->
+    </mat-toolbar>
+    
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+        <span style="margin-left:10px;">Home</span>
+      </a>
+
+      <a mat-list-item routerLink="/app-dash" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span style="margin-left:10px;">Dashboard</span>
+      </a>
+
+      <a mat-list-item routerLink="/app-table" routerLinkActive="active">
+        <mat-icon>people</mat-icon>
+        <span style="margin-left:10px;">Users</span>
+      </a>
+
+      <a mat-list-item routerLink="/app-browse" routerLinkActive="active">
+        <mat-icon>file_upload</mat-icon>
+        <span style="margin-left:10px;">Upload File</span>
+      </a>
+
+      <a mat-list-item routerLink="/app-new-user" routerLinkActive="active">
+        <mat-icon>shop</mat-icon>
+        <span style="margin-left:10px;">Products</span>
+      </a>
+
+      <a mat-list-item routerLink="/users" routerLinkActive="active">
+        <mat-icon>public</mat-icon>
+        <span style="margin-left:10px;">Services</span>
+      </a>
+
+      <a mat-list-item routerLink="/app-form" routerLinkActive="active">
+        <mat-icon>description</mat-icon>
+        <span style="margin-left:10px;">About</span>
+      </a>
+
+      <a mat-list-item routerLink="app-form-table" routerLinkActive="active">
+        <mat-icon>phone</mat-icon>
+        <span style="margin-left:10px;">Contact Us</span>
+      </a>      
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- <a class="upload" routerLink="/app-browse" routerLinkActive="active">
+         <mat-icon style="font-size: small;">cloud_upload</mat-icon> 
+        <span>Upload File </span>
+      </a> -->
+      
+    </mat-toolbar>
+    <!-- <app-dash></app-dash> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
