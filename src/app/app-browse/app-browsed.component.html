@@ -1,0 +1,24 @@
+<div style="height: 300px;width: 400px;">
+  <h2 mat-dialog-title>Upload File</h2>
+  <mat-dialog-content style="height: 200px;" >
+    
+    <ul style="padding-left: 0px;">
+      <app-drag-drop></app-drag-drop>
+      <li style="text-decoration: none;" *ngFor="let file of files">
+          <h3>Successfully Uploaded</h3>
+          
+            <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+            <span id="file-label">
+                {{file.data.name}} 
+            </span>
+      </li>
+  </ul>
+  <br/>
+  <input type="file" id="fileUpload" name="fileUpload" accept="{{accept}}" style="display:none;"/>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button mat-dialog-close>Cancel</button>
+    <button mat-stroked-button cdkFocusInitial (click)="onClick()">{{text}}</button>
+  </mat-dialog-actions>
+</div>
+

@@ -1,0 +1,23 @@
+.grid-container {
+  margin-left: 15%;
+  margin-top: 1%;
+}
+
+.dashboard-card {
+  position: absolute;
+  
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+  
+}

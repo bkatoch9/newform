@@ -1,0 +1,78 @@
+<div style="margin-left: 45%; margin-top:2%;">
+    <form [formGroup]="usersForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+        </mat-form-field>
+        <div *ngIf="(name.touched) || name.dirty">
+            <small *ngIf="name.errors?.required" class="text-danger">Name is required</small>
+        </div>
+
+        <br>
+        <div>
+            <label>Role </label>
+            <mat-radio-group color="primary" formControlName="role" required>
+              <mat-radio-button value="Clerk">Clerk</mat-radio-button>
+              <mat-radio-button value="HR">HR</mat-radio-button>
+              <mat-radio-button value="Tech">Tech</mat-radio-button>
+              <mat-radio-button value="Designer">Designer</mat-radio-button>
+            </mat-radio-group>
+            <div *ngIf="(role.touched) || role.dirty">
+                <small *ngIf="role.errors?.required" class="text-danger">Role is required</small>
+            </div>
+          </div>
+
+          <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Mail</mat-label>
+            <input [class.is-invalid] = "usersForm.get('email').invalid && usersForm.get('email').touched" type="email" matInput formControlName="email" required>
+
+        </mat-form-field>
+        <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger">Email is required</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+        </div>
+        
+        <br>
+
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Role </mat-label>
+            <mat-select formControlName="role" required>
+                <mat-option value="Clerk">Clerk</mat-option>
+                <mat-option value="HR">HR</mat-option>
+                <mat-option value="Tech">Tech</mat-option>
+                <mat-option value="Designer">Designer</mat-option>
+                <mat-option value="Sales Rep">Sales Rep</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="(role.touched) || role.dirty">
+            <small *ngIf="role.errors?.required" class="text-danger">Role is required</small>
+        </div>
+    
+        <br> -->
+
+        <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <mat-select formControlName="location" required>
+                <mat-option value="Bangalore">Bangalore</mat-option>
+                <mat-option value="Chennai">Chennai</mat-option>
+                <mat-option vlaue="Gurgaon">Gurgaon</mat-option>
+                <mat-option value="Kolkata">Kolkata</mat-option>
+                <mat-option value="Mumbai">Mumbai</mat-option>
+                <mat-option value="Pune">Pune</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+        
+        <button mat-stroked-button color="primary" type="submit" [disabled]="!usersForm.valid" >Submit</button>
+
+    </form>
+    <br>
+    <p>
+        Form Value: {{ usersForm.value | json }}
+    </p>    
+  </div>
+  

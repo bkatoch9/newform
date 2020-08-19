@@ -1,0 +1,24 @@
+<div class="grid-container">
+  <!-- <h1 class="mat-h1" style="text-align: center;">Dashboard</h1> -->
+  
+  <mat-grid-list cols="4" rowHeight="250px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card" style="padding:0%;">
+        
+        <mat-card-header style="background-color: #a0c2f8fa;padding-top: 10px;">
+          <mat-card-title>
+            {{card.title}} 
+            
+            <mat-icon class="more-icon">more_vert</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content class="dashboard-card-content">
+          <div style="margin: 20%;">
+            <h3>No. of users </h3>{{card.count}}</div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
